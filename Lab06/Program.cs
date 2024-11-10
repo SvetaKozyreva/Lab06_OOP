@@ -36,7 +36,7 @@ namespace Lab06
                 {
                     average += massive[i];
                 }
-                average /= 2;
+                average = Math.Round(average/massive.Length, 1);
             }
 
             void Geom()
@@ -45,10 +45,8 @@ namespace Lab06
                 {
                     geom *= massive[i];
                 }
-                geom = Math.Round(Math.Sqrt(geom), 1);
+                geom = Math.Round(Math.Pow(geom, 1.0/massive.Length), 1);
             }
-
-
         }
     }
 }
