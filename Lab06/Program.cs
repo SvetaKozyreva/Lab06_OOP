@@ -3,13 +3,13 @@ namespace Lab06
 {
     internal class Program
     {
+        static double geom = 1;
+        static double average = 0;
+        static int[] massive = new int[20];
         static void Main(string[] args)
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             Random r = new Random();
-
-            double geom = 1;
-            double average = 0;
-            int[] massive = new int[20];
 
             Console.Write($"Масив: ");
             for (int i = 0; i < massive.Length; i++)
@@ -29,24 +29,23 @@ namespace Lab06
 
             Console.WriteLine($"\nСереднє арифметичне: {average}");
             Console.WriteLine($"Середнє геометричне: {geom}");
-
-            void Average()
+        }
+        static void Average()
+        {
+            for (int i = 0; i < massive.Length; i++)
             {
-                for (int i = 0; i < massive.Length; i++)
-                {
-                    average += massive[i];
-                }
-                average = Math.Round(average/massive.Length, 1);
+                average += massive[i];
             }
+            average = Math.Round(average / massive.Length, 1);
+        }
 
-            void Geom()
+        static void Geom()
+        {
+            for (int i = 0; i < massive.Length; i++)
             {
-                for (int i = 0; i < massive.Length; i++)
-                {
-                    geom *= massive[i];
-                }
-                geom = Math.Round(Math.Pow(geom, 1.0/massive.Length), 1);
+                geom *= massive[i];
             }
+            geom = Math.Round(Math.Pow(geom, 1.0 / massive.Length), 1);
         }
     }
 }
